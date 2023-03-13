@@ -4,11 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//buat namespace
 namespace UAS_058
 {
+
+    /// <summary>
+    /// main class
+    /// </summary> 
+    /// <remarks>class node berfungsi untuk mendeklarasikan variabel dan node</remarks> 
     class Node
     {
-
         public string JenisBarang;
         public string NamaBarang;
         public int HargaBarang;
@@ -18,34 +23,47 @@ namespace UAS_058
         public Node prev;
     }
 
+    /// <summary>
+    /// class DouleLinkedList
+    /// </summary>
+    /// <remarks>class DoubleLinkedList untuk membuat konstruktor node dan buat method</remarks>
     class DoubleLinkedList
     {
         Node START;
-        //constructor
+
+        /// <summary>
+        /// Operasi untuk tambah barang
+        /// </summary>
 
         public void addNode()
         {
+            //buat variabel
             string jenis;
             string nama;
             int harga;
             int IDBarang;
-            
+
+            //cetak tulisan "Masukan Jenis Barang"
             Console.WriteLine("\nMasukan Jenis Barang: ");
             jenis= (Console.ReadLine());
+            //terima data (jenis)
 
             Console.Write("\n Masukan Nama Barang: ");
             nama= Console.ReadLine();
+            //terima data (nama)
 
             Console.Write("\n Masukan Harga Barang: ");
             harga = Convert.ToInt32(Console.ReadLine());
+            //terima data (harga)
 
             Console.Write("\n Masukan ID Barang: ");
             IDBarang = Convert.ToInt32(Console.ReadLine());
+            //terima data (id barang)
 
 
             Node newNode = new Node();
 
-
+            //buat variabel baru dgn newnode
             newNode.JenisBarang= jenis;
             newNode.NamaBarang = nama;
             newNode.HargaBarang = harga;
@@ -93,6 +111,14 @@ namespace UAS_058
             current.next = newNode;
         }
 
+        //buat function Search
+        /// <summary>
+        /// Operasi untuk cari barang berdasarkar jenis barang
+        /// </summary>
+        /// <param name="rollNo">jenis barang</param>
+        /// <param name="Previous">nama barang</param>
+        /// <param name="Current">harga barang</param>
+        /// <returns>hasil pencarian</returns>
         public bool Search(int rollNo, ref Node Previous, ref Node Current)
         {
             Previous = Current = START;
@@ -104,7 +130,9 @@ namespace UAS_058
             return(Current!=null);
         }
 
-
+        /// <summary>
+        /// jika list empty
+        /// </summary>
         public bool listEmpty()
         {
             if (START== null)
@@ -113,13 +141,10 @@ namespace UAS_058
                 return false;
         }
 
-        
-
-
     }
 
 
-
+    //tambah main class
     class Program
     {
         static void Main(string[] args)
@@ -183,6 +208,24 @@ namespace UAS_058
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//abaikan//
 
 /*
  * 2. Harusnya menggunakan single linked list tapi saya menggunakan double linked list karena contoh project linked list saya error
